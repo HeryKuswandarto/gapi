@@ -6,6 +6,10 @@
  <style type="text/css">
   .navbar {min-height: 15px;}
   .navbar-brand {padding: 0 15px; height: 15px; line-height: 15px;}
+  #content-section {
+      padding:5px;
+  }
+  table th{text-align:center; padding-left:5px; padding-right:5px;} td{padding-left:5px; padding-right:5px;} 
 </style>
 
 </head>
@@ -58,9 +62,9 @@
 
 
     <h4> @yield('judul_halaman')</h4>
-    <br/>
-
-    @yield('konten')
+    <div id="content-section">
+        @yield('konten')
+    </div>
     <!--
     <footer>
 	<center>

@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\GunungApi;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 class GunungapiController extends Controller
 {
     /**
@@ -13,8 +14,12 @@ class GunungapiController extends Controller
      */
     public function index()
     {
-        //
+        // $gunungapi = DB::table('gunungapi')->get();
+        // return view('gunungapi.index',['gunungapi' => $gunungapi]);
+        $gunungapis = GunungApi::all();
+        return view('gunungapi.index',['gunungapis' => $gunungapis]);
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -23,6 +28,7 @@ class GunungapiController extends Controller
      */
     public function create()
     {
+        return view('gunungapi.create');
         //
     }
 
@@ -34,7 +40,27 @@ class GunungapiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // return $request;
+
+        // DB::table('gunungapi') ->insert([
+        //    'code' => $request->code,
+        //    'name' => $request->name,
+        //    'othername' => $request->othername,
+        //    'latitude' => $request->latitude,
+        //    'longitude' => $request->longitude,
+        //    'altitude' => $request->altitude,
+        //    'region' => $request->region,
+        // ]);
+        $gunungapi = new GunungApi();
+        $gunungapi->code = $request->code;
+        $gunungapi->name = $request->name;
+        $gunungapi->othername = $request->othername;
+        $gunungapi->latitude = $request->latitude;
+        $gunungapi->longitude = $request->longitude;
+        $gunungapi->altitude = $request->altitude;
+        $gunungapi->region = $request->region;
+        $gunungapi->save();
+        return redirect()->route('gunungapi.index');
     }
 
     /**
@@ -56,7 +82,10 @@ class GunungapiController extends Controller
      */
     public function edit($id)
     {
-        //
+        //$gunungapi=DB::table('gunungapi')->where('id',$id)->get();
+         $gunungapi = GunungApi::find($id);
+        //return dd($gunungapi);
+        return view('gunungapi.edit',['gunungapi'=>$gunungapi]);
     }
 
     /**
@@ -66,9 +95,27 @@ class GunungapiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        // DB::table('gunungapi')->where('id',$request->id)->update([
+        //     'code'=>$request->code,
+        //     'name'=>$request->name,
+        //     'othername'=>$request->othername,
+        //     'latitude'=>$request->latitude,
+        //     'longitude'=>$request->longitude,
+        //     'altitude'=>$request->altitude,
+        //     'region'=>$request->region,
+        // ]);
+        $gunungapi = Gunungapi::find($request->id);
+        $gunungapi->code = $request->code;
+        $gunungapi->name = $request->name;
+        $gunungapi->othername = $request->othername;
+        $gunungapi->latitude = $request->latitude;
+        $gunungapi->longitude = $request->longitude;
+        $gunungapi->altitude = $request->altitude;
+        $gunungapi->region = $request->region;
+        $gunungapi->update();        
+        return redirect()->route('gunungapi.index');
     }
 
     /**
@@ -79,6 +126,9 @@ class GunungapiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // DB::table('gunungapi')->where('id',$id)->delete();
+        $gunungapi = Gunungapi::find($id);
+        $gunungapi->delete();
+        return redirect()->route('gunungapi.index');
     }
 }
