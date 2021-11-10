@@ -5,7 +5,7 @@
 @section('konten')
 <div class="row">
     <div class="col">
-        <a href="create">Add New Data</a>
+        <a href="{{ route('gunungapi.create') }}">Add New Data</a>
     </div>
 </div>
 
@@ -36,7 +36,7 @@
                     <td>
                         <a href="edit/{{$g->id}}"><img style="padding-left:10px; padding-right:10px;"
                                 src="/images/editb.png"></a>
-                        <a onclick="return confirm('Are you sure?')" href="destroy/{{$g->id}}"><img
+                        <a onclick="return confirm('Are you sure?')" href="{{ route('gunungapi.destroy', $g) }}"><img
                                 style="padding-left:10px; padding-right:10px;" src="/images/Trashb.png"></a>
                     </td>
                 </tr>
