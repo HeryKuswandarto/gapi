@@ -83,7 +83,7 @@ class GunungapiController extends Controller
     public function edit($id)
     {
         //$gunungapi=DB::table('gunungapi')->where('id',$id)->get();
-         $gunungapi = GunungApi::find($id);
+         $gunungapi = GunungApi::findOrFail($id);
         //return dd($gunungapi);
         return view('gunungapi.edit',['gunungapi'=>$gunungapi]);
     }
@@ -95,7 +95,7 @@ class GunungapiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
         // DB::table('gunungapi')->where('id',$request->id)->update([
         //     'code'=>$request->code,
@@ -106,7 +106,7 @@ class GunungapiController extends Controller
         //     'altitude'=>$request->altitude,
         //     'region'=>$request->region,
         // ]);
-        $gunungapi = Gunungapi::find($request->id);
+        $gunungapi = Gunungapi::findOrFail($id);
         $gunungapi->code = $request->code;
         $gunungapi->name = $request->name;
         $gunungapi->othername = $request->othername;
@@ -114,7 +114,7 @@ class GunungapiController extends Controller
         $gunungapi->longitude = $request->longitude;
         $gunungapi->altitude = $request->altitude;
         $gunungapi->region = $request->region;
-        $gunungapi->update();        
+        $gunungapi->update();
         return redirect()->route('gunungapi.index');
     }
 
