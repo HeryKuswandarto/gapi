@@ -33,7 +33,7 @@ Route::middleware('auth')->group(function(){
            ->name('gunungapi.store');
            Route::get('/gunungapi/edit/{id}', [GunungapiController::class, 'edit'])
            ->name('gunungapi.edit');
-           Route::post('/gunungapi/update', [GunungapiController::class, 'update'])
+           Route::post('/gunungapi/update/{id}', [GunungapiController::class, 'update'])
            ->name('gunungapi.update');
            Route::get('/gunungapi/destroy/{id}', [GunungapiController::class, 'destroy'])
            ->name('gunungapi.destroy');
