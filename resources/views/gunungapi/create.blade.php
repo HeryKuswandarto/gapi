@@ -12,7 +12,7 @@
 <div class="row mt-5">
     <div class="col-md-6">
         <form action="{{ route('gunungapi.store') }}" method="post">
-            {{csrf_field()}}
+            @csrf
             <div class="form-group">
                 <label for="kode">Kode Gunung Api</label>
                 <input name="code" type="text" class="form-control" required>
