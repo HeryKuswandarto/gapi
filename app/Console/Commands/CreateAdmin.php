@@ -42,12 +42,12 @@ class CreateAdmin extends Command
             [
                 'name' => 'Martanto',
                 'email' => 'martanto@gapi.test',
-                'password' => 'esdm1234',
+                'password' => bcrypt('esdm1234'),
             ],
             [
                 'name' => 'Hery K.',
                 'email' => 'hery@gapi.test',
-                'password' => 'esdm1234',
+                'password' => bcrypt('esdm1234'),
             ]
         ]);
 
