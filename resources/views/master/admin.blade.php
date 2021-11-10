@@ -3,14 +3,32 @@
     <title>Gunungapi</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
- <style type="text/css">
-  .navbar {min-height: 15px;}
-  .navbar-brand {padding: 0 15px; height: 15px; line-height: 15px;}
-  #content-section {
-      padding:5px;
-  }
-  table th{text-align:center; padding-left:5px; padding-right:5px;} td{padding-left:5px; padding-right:5px;} 
-</style>
+    <style type="text/css">
+        .navbar {
+            min-height: 15px;
+        }
+
+        .navbar-brand {
+            padding: 0 15px;
+            height: 15px;
+            line-height: 15px;
+        }
+
+        #content-section {
+            padding:5px;
+        }
+
+        table th {
+            text-align:center;
+            padding-left:5px;
+            padding-right:5px;
+        }
+
+        td {
+            padding-left:5px;
+            padding-right:5px;
+        }
+    </style>
 
 </head>
 <body>
@@ -24,19 +42,19 @@
 	    <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
 	            <li class="{{ (request()->is('gapi/gunungapi*')) ? 'active' : ''}} nav-item">
-                    <a class="nav-link py-0" href="../gunungapi/index">Gunungapi</a>
+                    <a class="nav-link py-0" href="{{ route('gunungapi.index') }}">Gunungapi</a>
                 </li>
 	            <li class="{{ (request()->is('gapi/stasiun*')) ? 'active' : ''}} nav-item">
-                    <a class="nav-link py-0" href="../stasiun/index">Stasiun Pemantauan</a>
+                    <a class="nav-link py-0" href="{{ route('stasiun.index') }}">Stasiun Pemantauan</a>
                 </li>
 	            <li class="{{ (request()->is('gapi/sejarah*')) ? 'active' : ''}} nav-item">
-                    <a class="nav-link py-0" href="../sejarah/index">Sejarah Letusan</a>
+                    <a class="nav-link py-0" href="{{ route('sejarah.index') }}">Sejarah Letusan</a>
                 </li>
 	            <li class="{{ (request()->is('gapi/krb*')) ? 'active' : ''}} nav-item">
-                    <a class="nav-link py-0" href="../krb/index">Peta Kawasan Rawan Bencana</a>
+                    <a class="nav-link py-0" href="{{ route('krb.index') }}">Peta Kawasan Rawan Bencana</a>
                 </li>
                 <li class="{{ (request()->is('gapi/admin*')) ? 'active' : ''}} nav-item">
-                    <a class="nav-link py-0" href="../admin/index">Admin <span class="sr-only">(current)</span></a>
+                    <a class="nav-link py-0" href="{{ route('admin.index') }}">Admin <span class="sr-only">(current)</span></a>
                </li>
             </ul>
             <ul class="navbar-nav">
