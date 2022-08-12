@@ -1,8 +1,8 @@
 @extends('master.admin')
 
 @section('judul_halaman', 'Gunungapi')
-
 @section('konten')
+<p>Memberikan informasi data gunung api yang tersedia pada sistem</p>
 <div class="row">
     <div class="col">
         <a href="{{ route('gunungapi.create') }}">Add New Data</a>

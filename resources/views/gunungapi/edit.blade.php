@@ -33,13 +33,13 @@
 
             <div class="form-group">
                 <label for="latitude">Latitude/Lintang</label>
-                <input name="latitude" value="{{ $gunungapi->latitude }}" type="number" class="form-control" required>
+                <input name="latitude" value="{{ $gunungapi->latitude }}" type="number" step="any" class="form-control" required>
                 <small class="form-text text-muted">Koordinat latitude/lintang gunung api.</small>
             </div>
 
             <div class="form-group">
-                <label for="longitude">Latitude/Bujur</label>
-                <input name="longitude" value="{{ $gunungapi->longitude }}" type="number" class="form-control" required>
+                <label for="longitude">Longitude/Bujur</label>
+                <input name="longitude" value="{{ $gunungapi->longitude }}" type="number" step="any" class="form-control" required>
                 <small class="form-text text-muted">Koordinat longitude/bujur gunung api.</small>
             </div>
 

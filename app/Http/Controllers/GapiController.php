@@ -9,6 +9,9 @@ class GapiController extends Controller
     public function gunungapi_index(){
         return view('gunungapi.index');
     }
+    public function jenisstasiun_index(){
+        return view('jenisstasiun.index');
+    }
     public function stasiun_index(){
         return view('stasiun.index');
     }

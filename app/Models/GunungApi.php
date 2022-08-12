@@ -10,4 +10,11 @@ class GunungApi extends Model
     use HasFactory;
 
     protected $table = 'gunungapi';
+
+    public function stasiuns()
+    {
+        return $this->hasMany(Stasiun::class,'gunungapi_id', 'id');
+
+    }
+
 }

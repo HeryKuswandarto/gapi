@@ -25,7 +25,7 @@
         }
 
         table th {
-            text-align: center;
+            text-align: left;
             padding-left: 5px;
             padding-right: 5px;
         }
@@ -51,6 +51,9 @@
             <ul class="navbar-nav mr-auto">
                 <li class="{{ (request()->is('gapi/gunungapi*')) ? 'active' : ''}} nav-item">
                     <a class="nav-link py-0" href="{{ route('gunungapi.index') }}">Gunungapi</a>
+                </li>
+                <li class="{{ (request()->is('gapi/jenisstasiun*')) ? 'active' : ''}} nav-item">
+                    <a class="nav-link py-0" href="{{ route('jenisstasiun.index') }}">Jenis Stasiun</a>
                 </li>
                 <li class="{{ (request()->is('gapi/stasiun*')) ? 'active' : ''}} nav-item">
                     <a class="nav-link py-0" href="{{ route('stasiun.index') }}">Stasiun Pemantauan</a>
@@ -89,7 +92,6 @@
 
     <div class="container">
         <h1 class="mt-5"> @yield('judul_halaman')</h1>
-        <p>Memberikan informasi data gunung api yang tersedia pada sistem</p>
         @yield('konten')
     </div>
 
