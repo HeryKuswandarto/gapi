@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GunungapiController;
 use App\Http\Controllers\JenisstasiunController;
 use App\Http\Controllers\StasiunController;
+use App\Http\Controllers\SejarahController;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,8 +67,21 @@ Route::middleware('auth')->group(function(){
         Route::get('/stasiun/destroy/{id}', [StasiunController::class, 'destroy'])
            ->name('stasiun.destroy');
 
+        Route::get('/sejarah/index', [SejarahController::class, 'index'])
+           ->name('sejarah.index');
+        Route::get('/sejarah/create', [SejarahController::class, 'create'])
+           ->name('sejarah.create');
+        Route::post('/sejarah/store', [SejarahController::class, 'store'])
+           ->name('sejarah.store');
+           Route::get('/sejarah/edit/{id}', [SejarahController::class, 'edit'])
+           ->name('sejarah.edit');
+        Route::post('/sejarah/update/{id}', [SejarahController::class, 'update'])
+           ->name('sejarah.update');
+        Route::get('/sejarah/destroy/{id}', [SejarahController::class, 'destroy'])
+           ->name('sejarah.destroy');
+
       //   Route::get('/stasiun/index',  [App\Http\Controllers\GapiController::class, 'stasiun_index'])->name('stasiun.index');
-        Route::get('/sejarah/index',  [App\Http\Controllers\GapiController::class, 'sejarah_index'])->name('sejarah.index');
+      //  Route::get('/sejarah/index',  [App\Http\Controllers\GapiController::class, 'sejarah_index'])->name('sejarah.index');
         Route::get('/krb/index',  [App\Http\Controllers\GapiController::class, 'krb_index'])->name('krb.index');
         Route::get('/admin/index',  [App\Http\Controllers\GapiController::class, 'admin_index'])->name('admin.index');
     });
