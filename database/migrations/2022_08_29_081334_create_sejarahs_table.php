@@ -16,7 +16,7 @@ class CreateSejarahsTable extends Migration
         Schema::create('sejarahs', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('gunungapi_id');
-            $table->insignedInteger('tahun');
+            $table->unsignedInteger('tahun');
             $table->unsignedInteger('vei');
             $table->text('keterangan',2000);
             $table->timestamps();

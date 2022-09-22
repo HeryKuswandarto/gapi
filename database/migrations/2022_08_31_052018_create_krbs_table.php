@@ -17,7 +17,8 @@ class CreateKrbsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('gunungapi_id');
             $table->unsignedInteger('tahun');
-            $table->string('file');
+            $table->string('fileshp');
+            $table->string('filejpg');
             $table->timestamps();
         });
     }

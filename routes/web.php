@@ -6,6 +6,8 @@ use App\Http\Controllers\GunungapiController;
 use App\Http\Controllers\JenisstasiunController;
 use App\Http\Controllers\StasiunController;
 use App\Http\Controllers\SejarahController;
+use App\Http\Controllers\KrbController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,10 +22,14 @@ use App\Http\Controllers\SejarahController;
 
 Route::get('/', function () {
     //return view('welcome');
-    return view('auth.login');
+    //return view('auth.login');
+    return view('main');
 });
 
 Auth::routes();
+
+ Route::get ('/auth/login')
+    ->name('auth.login');
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::middleware('auth')->group(function(){
@@ -80,9 +86,37 @@ Route::middleware('auth')->group(function(){
         Route::get('/sejarah/destroy/{id}', [SejarahController::class, 'destroy'])
            ->name('sejarah.destroy');
 
-      //   Route::get('/stasiun/index',  [App\Http\Controllers\GapiController::class, 'stasiun_index'])->name('stasiun.index');
+        Route::get('/krb/index', [KrbController::class, 'index'])
+           ->name('krb.index');
+        Route::get('/krb/create', [KrbController::class, 'create'])
+           ->name('krb.create');
+        Route::post('/krb/store', [KrbController::class, 'store'])
+           ->name('krb.store');
+        Route::get('/krb/edit/{id}', [KrbController::class, 'edit'])
+           ->name('krb.edit');
+        Route::post('/krb/update/{id}', [KrbController::class, 'update'])
+           ->name('krb.update');
+        Route::get('/krb/destroy/{id}', [KrbController::class, 'destroy'])
+           ->name('krb.destroy');
+
+        Route::get('/admin/index', [AdminController::class, 'index'])
+           ->name('admin.index');
+        Route::get('/admin/create', [AdminController::class, 'create'])
+           ->name('admin.create');
+        Route::post('/admin/store', [AdminController::class, 'store'])
+           ->name('admin.store');
+        Route::get('/admin/destroy/{id}', [AdminController::class, 'destroy'])
+           ->name('admin.destroy');
+
+        // Route::get('/auth/login', function() {
+        //     return view('auth.login');
+        // })
+        //    ->name('auth.login');
+
+
+       //   Route::get('/stasiun/index',  [App\Http\Controllers\GapiController::class, 'stasiun_index'])->name('stasiun.index');
       //  Route::get('/sejarah/index',  [App\Http\Controllers\GapiController::class, 'sejarah_index'])->name('sejarah.index');
-        Route::get('/krb/index',  [App\Http\Controllers\GapiController::class, 'krb_index'])->name('krb.index');
-        Route::get('/admin/index',  [App\Http\Controllers\GapiController::class, 'admin_index'])->name('admin.index');
+      //  Route::get('/krb/index',  [App\Http\Controllers\GapiController::class, 'krb_index'])->name('krb.index');
+      //  Route::get('/admin/index',  [App\Http\Controllers\GapiController::class, 'admin_index'])->name('admin.index');
     });
 });

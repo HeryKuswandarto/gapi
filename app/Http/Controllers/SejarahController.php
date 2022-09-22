@@ -54,9 +54,14 @@ class SejarahController extends Controller
 
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(),[
-           'vei' => 'required|integer|between:0,7',
-        ])->validate();
+        // $validator = Validator::make($request->all(),[
+        //    'vei' => 'required|integer|between:0,7',
+        // ])->validate();
+
+        $validator=[
+            'vei'=> 'required|integer|between:0,7',
+        ];
+        $this->validate($request,$validator);
 
         $sejarah = new Sejarah();
         $sejarah->tahun = $request->tahun;
