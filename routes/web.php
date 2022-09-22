@@ -28,8 +28,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
- Route::get ('/auth/login')
-    ->name('auth.login');
+Route::get('/auth/login', function() {
+    return view('auth.login');
+})->name('auth.login');
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::middleware('auth')->group(function(){
