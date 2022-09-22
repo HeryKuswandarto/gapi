@@ -28,7 +28,7 @@ class LoginController extends Controller
      * @var string
      */
     // protected $redirectTo = RouteServiceProvider::HOME;
-    protected $redirectTo = 'gapi/gunungapi/index';
+    protected $redirectTo = '/gapi/gunungapi/index';
     /**
      * Create a new controller instance.
      *
@@ -51,7 +51,7 @@ class LoginController extends Controller
             return $response;
         }
 
-        return redirect('/login');
+        return redirect('/auth/login');
     }
 
     public function username()
