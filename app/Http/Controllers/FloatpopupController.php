@@ -6,7 +6,7 @@ use App\Models\GunungApi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class FloatpupController extends Controller
+class FloatpopupController extends Controller
 {
     public function view($id)
     {

@@ -38,12 +38,12 @@ Route::get('/auth/login', function() {
     return view('auth.login');
 })->name('auth.login');
 
-Route::get('/gapi/floatpopup', function(){
-    return view('floatpopup');
-})->name('floatpopup');
+// Route::get('/gapi/floatpopup', function(){
+//     return view('floatpopup');
+// })->name('floatpopup');
 
-// Route::get('/gapi/floatpopup/{id}', [FloatpopupController::class, 'view'])
-// ->name('floatpopup');
+Route::get('/gapi/floatpopup/{id}', [FloatpopupController::class, 'view'])
+->name('floatpopup');
 
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -36,7 +36,7 @@
         }
 
         // L.marker([-6.8, 107.8]).bindPopup('<iframe src="https://ngantor.esdm.go.id" width="300" height="300"></iframe>').addTo(map);
-        L.marker([-6.8, 107.8]).bindPopup('<iframe src="gapi/floatpopup?id=1" width="300" height="300"></iframe>').addTo(map);
+        // L.marker([-6.8, 107.8]).bindPopup('<iframe src="gapi/floatpopup?id=1" width="300" height="300"></iframe>').addTo(map);
 	</script>
 
 @endsection
