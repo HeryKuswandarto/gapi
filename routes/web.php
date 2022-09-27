@@ -8,6 +8,8 @@ use App\Http\Controllers\StasiunController;
 use App\Http\Controllers\SejarahController;
 use App\Http\Controllers\KrbController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\MainController;
+use App\Http\Controllers\FloatpopupController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,10 +22,14 @@ use App\Http\Controllers\AdminController;
 |
 */
 
-Route::get('/', function () {
-    //return view('welcome');
-    //return view('auth.login');
-    return view('main');
+// Route::get('/', function () {
+//     //return view('welcome');
+//     //return view('auth.login');
+//     return view('main');
+// });
+
+Route::get('/', [MainController::class, 'view'],function(){
+   return view('main');
 });
 
 Auth::routes();
@@ -31,6 +37,14 @@ Auth::routes();
 Route::get('/auth/login', function() {
     return view('auth.login');
 })->name('auth.login');
+
+Route::get('/gapi/floatpopup', function(){
+    return view('floatpopup');
+})->name('floatpopup');
+
+// Route::get('/gapi/floatpopup/{id}', [FloatpopupController::class, 'view'])
+// ->name('floatpopup');
+
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::middleware('auth')->group(function(){
